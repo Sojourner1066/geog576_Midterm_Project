@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
    
-    <title>Data Collector for AGOL</title>
+    <title>Social Media Influencer Research Tool</title>
     <style>
       html,
       body,
@@ -86,6 +86,33 @@
 
         // add the layer into the map object
         map.add(layer);
+
+        // Define a pop-up for nationalTrustLayer
+      const popupOSM = {
+        "title": "Tourist Locations",
+        //"content": "<b>Name:</b> {NAME}<br><b>Total Area Under Protection:</b>{Shape__Area_2}<br>"
+      }
+      const touristOSMinAfrica = new FeatureLayer({
+        url: "https://services-eu1.arcgis.com/zci5bUiJ8olAal7N/arcgis/rest/services/OSM_AF_Tourism/FeatureServer",
+        //outFields: ["NAME","Shape__Area_2"],
+        popupTemplate: popupOSM
+      });
+      
+      map.add(touristOSMinAfrica);
+
+      // Adding the airport feature layer to the map
+      // const airportRenderer = {
+      //   "type": "simple",
+      //   "symbol": {
+      //     "type": "picture-marker",
+      //     "url": "https://sounny.github.io/agol/outline_local_airport_black_24dp.png",
+      //     "width": "18px",
+      //     "height": "18px"
+      //   }
+      // };
+
+
+
         
       });
     </script>
