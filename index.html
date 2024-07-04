@@ -43,9 +43,10 @@
                "esri/views/MapView",
                "esri/widgets/Locate",
                "esri/widgets/Search",
-               "esri/layers/FeatureLayer"
-             ],(esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
-                
+               "esri/layers/FeatureLayer",
+               "esri/widgets/Legend"
+             ],(esriConfig, Map, MapView, Locate, Search, FeatureLayer,Legend) => {
+
         esriConfig.apiKey = "AAPK81b7cca05fd44c15a03618aa1d5dd08bZ1H0FAlNGuWt3LBhlRWCK906HeAPjeUnUsp30Hja37HR_MwAO3BPqQO2D-rMlJTE"
 
         const map = new Map({
@@ -99,13 +100,12 @@
                     "opening_hours", "operator", "phone", "tourism", "website"],
         popupTemplate: popupOSM
       });
-      
-
-
-
-
-
       map.add(touristOSMinAfrica);
+      const legend = new Legend({
+        view: view,
+        layerInfos: [{ layer: touristOSMinAfrica, title: "Tourist Points of Interest" }]
+      });
+      view.ui.add(legend, "bottom-right");
 
       // Adding the airport feature layer to the map
       // const airportRenderer = {
