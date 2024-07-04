@@ -98,7 +98,8 @@
         outFields: ["addr_city", "addr_country", "addr_housenumber", "addr_postcode", "addr_street", "addr_unit",
                     "amenity", "attraction", "description", "historic", "information", "name", "name_en", 
                     "opening_hours", "operator", "phone", "tourism", "website"],
-        popupTemplate: popupOSM
+        popupTemplate: popupOSM,
+        minScale: 0
       });
       map.add(touristOSMinAfrica);
       const legend = new Legend({
