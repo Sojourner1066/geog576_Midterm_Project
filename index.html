@@ -74,7 +74,7 @@
         });
         // Adds the search widget below other elements
         view.ui.add(searchWidget, {
-          position: "bottom-right",
+          position: "bottom-left",
           index: 2
         });
 
@@ -105,22 +105,7 @@
         view: view,
         layerInfos: [{ layer: touristOSMinAfrica, title: "Tourist Points of Interest" }]
       });
-      view.ui.add(legend, "bottom-right");
-
-      // Adding the airport feature layer to the map
-      // const airportRenderer = {
-      //   "type": "simple",
-      //   "symbol": {
-      //     "type": "picture-marker",
-      //     "url": "https://sounny.github.io/agol/outline_local_airport_black_24dp.png",
-      //     "width": "18px",
-      //     "height": "18px"
-      //   }
-      // };
-
-
-
-        
+      view.ui.add(legend, "bottom-right");       
       });
     </script>
 
