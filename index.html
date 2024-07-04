@@ -99,7 +99,11 @@
                     "amenity", "attraction", "description", "historic", "information", "name", "name_en", 
                     "opening_hours", "operator", "phone", "tourism", "website"],
         popupTemplate: popupOSM,
-        minScale: 0
+        minScale: 0,
+        featureReduction:{
+          type: "cluster",
+          clusterRadius: 100
+        }
       });
       map.add(touristOSMinAfrica);
       const legend = new Legend({
