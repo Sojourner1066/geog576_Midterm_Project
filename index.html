@@ -44,8 +44,9 @@
                "esri/widgets/Locate",
                "esri/widgets/Search",
                "esri/layers/FeatureLayer",
-               "esri/widgets/Legend"
-             ],(esriConfig, Map, MapView, Locate, Search, FeatureLayer,Legend) => {
+               "esri/widgets/Legend",
+               "esri/layers/support/FeatureReductionCluster"
+             ],(esriConfig, Map, MapView, Locate, Search, FeatureLayer,Legend,FeatureReductionCluster) => {
 
         esriConfig.apiKey = "AAPK81b7cca05fd44c15a03618aa1d5dd08bZ1H0FAlNGuWt3LBhlRWCK906HeAPjeUnUsp30Hja37HR_MwAO3BPqQO2D-rMlJTE"
 
@@ -101,22 +102,28 @@
         popupTemplate: popupOSM,
         //minScale: 0
       });
+      
       touristOSMinAfrica.featureReduction = {
-        type: "binning",
-        fixedBinLevel: 3,
-        fields: ["tourism"],
-        renderer: {
-          type: "simple"
-          // other renderer properties
-        },
-        popupTemplate: {
-          content: "This bin contains <b>{aggregateCount}</b> features.",
-          // other popup template content
-        },
-        labelingInfo: [
-          // add labels to bins here
-        ]
+        type: "cluster",
+        clusterRadius: "120px",
       };
+
+      // touristOSMinAfrica.featureReduction = {
+      //   type: "binning",
+      //   fixedBinLevel: 3,
+      //   fields: ["tourism"],
+      //   renderer: {
+      //     type: "simple"
+      //     // other renderer properties
+      //   },
+      //   popupTemplate: {
+      //     content: "This bin contains <b>{aggregateCount}</b> features.",
+      //     // other popup template content
+      //   },
+      //   labelingInfo: [
+      //     // add labels to bins here
+      //   ]
+      // };
 
       map.add(touristOSMinAfrica);
 
