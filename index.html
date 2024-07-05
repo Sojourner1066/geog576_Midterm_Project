@@ -99,15 +99,27 @@
                     "amenity", "attraction", "description", "historic", "information", "name", "name_en", 
                     "opening_hours", "operator", "phone", "tourism", "website"],
         popupTemplate: popupOSM,
-        minScale: 0
+        //minScale: 0
       });
       touristOSMinAfrica.featureReduction = {
-          type: "cluster",
-          clusterRadius: 100
-        };
+        type: "binning",
+        fixedBinLevel: 3,
+        fields: ["tourism"],
+        renderer: {
+          type: "simple"
+          // other renderer properties
+        },
+        popupTemplate: {
+          content: "This bin contains <b>{aggregateCount}</b> features.",
+          // other popup template content
+        },
+        labelingInfo: [
+          // add labels to bins here
+        ]
+      };
 
       map.add(touristOSMinAfrica);
-      
+
       const legend = new Legend({
         view: view,
         layerInfos: [{ layer: touristOSMinAfrica, title: "Tourist Points of Interest" }]
