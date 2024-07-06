@@ -79,28 +79,16 @@
           index: 2
         });
 
-        // Create featurelayer from feature service
-        // this service is the results layer from the survey
-        // const layer = new FeatureLayer({ 
-        //   // URL to the service 
-        //   url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_46b82e4cd3b74d76a7810be30eda71b4_results/FeatureServer"
-        // });
-
-        // // add the layer into the map object
-        // map.add(layer);
-
         // Define a pop-up for nationalTrustLayer
       const popupOSM = {
         "title": "Tourist Locations",
         "content": "<b>Name:</b>{name} / {name_en}<br><b>Address:</b>{addr_street}<br>{addr_housenumber}<br>{addr_unit}<br>{addr_city}<br>{addr_postcode}<br>{addr_country}<br><b>Opening Hours:</b>{opening_hours}<br>"
       }
-      const touristOSMinAfrica = new FeatureLayer({
+
+      const clusteredTourist = new FeatureLayer({
         url: "https://services-eu1.arcgis.com/zci5bUiJ8olAal7N/ArcGIS/rest/services/OSM_AF_Tourism/FeatureServer/0",
-        outFields: ["addr_city", "addr_country", "addr_housenumber", "addr_postcode", "addr_street", "addr_unit",
-                    "amenity", "attraction", "description", "historic", "information", "name", "name_en", 
-                    "opening_hours", "operator", "phone", "tourism", "website"],
-        popupTemplate: popupOSM,
         minScale: 0,
+        maxScale: 100000,
         featureReduction: {
           type: "cluster",
           clusterRadius: "120px", // Adjust the cluster radius as needed
@@ -125,6 +113,15 @@
           ]
         }
 
+      });
+
+      const touristOSMinAfrica = new FeatureLayer({
+        url: "https://services-eu1.arcgis.com/zci5bUiJ8olAal7N/ArcGIS/rest/services/OSM_AF_Tourism/FeatureServer/0",
+        outFields: ["addr_city", "addr_country", "addr_housenumber", "addr_postcode", "addr_street", "addr_unit",
+                    "amenity", "attraction", "description", "historic", "information", "name", "name_en", 
+                    "opening_hours", "operator", "phone", "tourism", "website"],
+        popupTemplate: popupOSM,
+        // minScale: 0,
       });
       
       // touristOSMinAfrica.featureReduction = {
