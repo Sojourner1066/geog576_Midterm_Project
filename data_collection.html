@@ -58,52 +58,52 @@
           container: "viewDiv" // Reference to the DOM node that will contain the view
         });
 
-        const searchWidget = new Search({
-          view: view
-        });
-        // Adds the search widget below other elements
-        view.ui.add(searchWidget, {
-          position: "bottom-right",
-          index: 2
-        });
+        // const searchWidget = new Search({
+        //   view: view
+        // });
+        // // Adds the search widget below other elements
+        // view.ui.add(searchWidget, {
+        //   position: "bottom-right",
+        //   index: 2
+        // });
 
         // Define a pop-up for nationalTrustLayer
-      const popupOSM = {
-        "title": "Tourist Locations",
-        "content": "<b>Name:</b>{what_is_the_name_of_the_place_y}"
-      }
+      // const popupOSM = {
+      //   "title": "Tourist Locations",
+      //   "content": "<b>Name:</b>{what_is_the_name_of_the_place_y}"
+      // }
       const visitedLocations = new FeatureLayer({
-        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_d35218e995de4f19a54b7bc27326563e_results/FeatureServer",
-        outFields: ["what_is_the_name_of_the_place_y",
-                    "date_of_observation",
-                    "what_is_the_category_of_the_pla",
-                    "landmarks_and_attractions",
-                    "landmark_other",
-                    "restaurants_and_cafes",
-                    "untitled_question_5_other",
-                    "hotels_and_accommodations",
-                    "untitled_question_6_other",
-                    "shopping_and_markets",
-                    "untitled_question_7_other",
-                    "nature_and_outdoor_activities",
-                    "untitled_question_8_other",
-                    "cultural_and_entertainment_venu",
-                    "untitled_question_9_other",
-                    "wellness_and_relaxation",
-                    "untitled_question_10_other",
-                    "nightlife_and_entertainment",
-                    "untitled_question_11_other",
-                    "local_experiences_and_tours",
-                    "untitled_question_12_other",
-                    "transportation_and_scenic_route",
-                    "untitled_question_13_other",
-                    "how_would_you_rate_your_experie",
-                    "how_would_you_rate_this_place",
-                    "please_enter_a_website_for_the",
-                    "please_record_your_observations",
-                    "record_information_about_the_vi",
-                    ],
-        popupTemplate: popupOSM
+        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_d35218e995de4f19a54b7bc27326563e_results/FeatureServer/0",
+        // outFields: ["what_is_the_name_of_the_place_y",
+        //             "date_of_observation",
+        //             "what_is_the_category_of_the_pla",
+        //             "landmarks_and_attractions",
+        //             "landmark_other",
+        //             "restaurants_and_cafes",
+        //             "untitled_question_5_other",
+        //             "hotels_and_accommodations",
+        //             "untitled_question_6_other",
+        //             "shopping_and_markets",
+        //             "untitled_question_7_other",
+        //             "nature_and_outdoor_activities",
+        //             "untitled_question_8_other",
+        //             "cultural_and_entertainment_venu",
+        //             "untitled_question_9_other",
+        //             "wellness_and_relaxation",
+        //             "untitled_question_10_other",
+        //             "nightlife_and_entertainment",
+        //             "untitled_question_11_other",
+        //             "local_experiences_and_tours",
+        //             "untitled_question_12_other",
+        //             "transportation_and_scenic_route",
+        //             "untitled_question_13_other",
+        //             "how_would_you_rate_your_experie",
+        //             "how_would_you_rate_this_place",
+        //             "please_enter_a_website_for_the",
+        //             "please_record_your_observations",
+        //             "record_information_about_the_vi",
+        //             ],
+        // popupTemplate: popupOSM
       });
       
       map.add(visitedLocations);
