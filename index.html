@@ -114,7 +114,8 @@
         }
 
       });
-
+      map.add(clusteredTourist);
+      
       const touristOSMinAfrica = new FeatureLayer({
         url: "https://services-eu1.arcgis.com/zci5bUiJ8olAal7N/ArcGIS/rest/services/OSM_AF_Tourism/FeatureServer/0",
         outFields: ["addr_city", "addr_country", "addr_housenumber", "addr_postcode", "addr_street", "addr_unit",
@@ -123,7 +124,7 @@
         popupTemplate: popupOSM,
         // minScale: 0,
       });
-      
+      map.add(touristOSMinAfrica);
       // touristOSMinAfrica.featureReduction = {
       //   type: "cluster",
       //   clusterRadius: "120px",
@@ -145,8 +146,6 @@
       //     // add labels to bins here
       //   ]
       // };
-
-      map.add(touristOSMinAfrica);
 
       const legend = new Legend({
         view: view,
