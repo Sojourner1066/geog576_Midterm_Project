@@ -100,7 +100,31 @@
                     "amenity", "attraction", "description", "historic", "information", "name", "name_en", 
                     "opening_hours", "operator", "phone", "tourism", "website"],
         popupTemplate: popupOSM,
-        minScale: 0
+        minScale: 0,
+        featureReduction: {
+          type: "cluster",
+          clusterRadius: "120px", // Adjust the cluster radius as needed
+          popupTemplate: {
+            title: "Cluster Summary",
+            content: "This cluster contains <b>{cluster_count}</b> points.",
+          },
+          labelingInfo: [
+            {
+              deconflictionStrategy: "none",
+              labelExpressionInfo: {
+                expression: "Text($feature.cluster_count, '#,###')"
+              },
+              symbol: {
+                type: "text",
+                color: "white",
+                haloSize: 1,
+                haloColor: "black"
+              },
+              labelPlacement: "center-center"
+            }
+          ]
+        }
+
       });
       
       // touristOSMinAfrica.featureReduction = {
