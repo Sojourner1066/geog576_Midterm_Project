@@ -67,16 +67,18 @@
         //   index: 2
         // });
 
-        // Define a pop-up for nationalTrustLayer
-      // const popupOSM = {
-      //   "title": "Tourist Locations",
-      //   "content": "<b>Name:</b>{what_is_the_name_of_the_place_y}"
-      // }
+      // Define a pop-up for data recorded through Survey123 
+      const popupDataRecordedData = {
+        "title": "Recorded Review",
+        "content": "<b>Name:</b>{what_is_the_name_of_the_place_y}"
+      }
+
+      // This will display data already recorded using the Survey123 applicaion. This will let users see their recorded events
       const visitedLocations = new FeatureLayer({
-        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_d35218e995de4f19a54b7bc27326563e_results/FeatureServer/0",
-        // outFields: ["what_is_the_name_of_the_place_y",
-        //             "date_of_observation",
-        //             "what_is_the_category_of_the_pla",
+        url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_d35218e995de4f19a54b7bc27326563e_results/FeatureServer",
+        outFields: ["what_is_the_name_of_the_place_y",
+                    "date_of_observation",
+                    "what_is_the_category_of_the_pla",
         //             "landmarks_and_attractions",
         //             "landmark_other",
         //             "restaurants_and_cafes",
@@ -102,8 +104,8 @@
         //             "please_enter_a_website_for_the",
         //             "please_record_your_observations",
         //             "record_information_about_the_vi",
-        //             ],
-        // popupTemplate: popupOSM
+                    ],
+        popupTemplate: popupDataRecordedData
       });
       
       map.add(visitedLocations);
