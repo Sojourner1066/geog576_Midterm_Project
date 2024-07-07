@@ -51,6 +51,7 @@
         const map = new Map({
           basemap: "osm"
         });
+        
         // create a mapview with a center on Cambrige UK and a zoom level of the city
         const view = new MapView({
           map: map,// References the map object
@@ -88,26 +89,6 @@
         outFields: ["what_is_the_name_of_the_place_y",
                     "date_of_observation",
                     "what_is_the_category_of_the_pla",
-        //             "landmarks_and_attractions",
-        //             "landmark_other",
-        //             "restaurants_and_cafes",
-        //             "untitled_question_5_other",
-        //             "hotels_and_accommodations",
-        //             "untitled_question_6_other",
-        //             "shopping_and_markets",
-        //             "untitled_question_7_other",
-        //             "nature_and_outdoor_activities",
-        //             "untitled_question_8_other",
-        //             "cultural_and_entertainment_venu",
-        //             "untitled_question_9_other",
-        //             "wellness_and_relaxation",
-        //             "untitled_question_10_other",
-        //             "nightlife_and_entertainment",
-        //             "untitled_question_11_other",
-        //             "local_experiences_and_tours",
-        //             "untitled_question_12_other",
-        //             "transportation_and_scenic_route",
-        //             "untitled_question_13_other",
                     "how_would_you_rate_your_experie",
                     "please_enter_a_website_for_the",
                     "please_record_your_observations",
@@ -118,16 +99,6 @@
       
       map.add(visitedLocations);
 
-      // Adding the airport feature layer to the map
-      // const airportRenderer = {
-      //   "type": "simple",
-      //   "symbol": {
-      //     "type": "picture-marker",
-      //     "url": "https://sounny.github.io/agol/outline_local_airport_black_24dp.png",
-      //     "width": "18px",
-      //     "height": "18px"
-      //   }
-      // };
       const legend = new Legend({
         view: view,
         layerInfos: [{ layer: visitedLocations, title: "Locations Reviewed" }]
