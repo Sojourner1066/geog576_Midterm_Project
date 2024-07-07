@@ -51,7 +51,7 @@
         const map = new Map({
           basemap: "osm"
         });
-        
+
         // create a mapview with a center on Cambrige UK and a zoom level of the city
         const view = new MapView({
           map: map,// References the map object
@@ -77,6 +77,9 @@
                       <b>Website:</b><a href="{please_enter_a_website_for_the}">Click Here</a><br><br>
                       <b>Observations:</b>{please_record_your_observations}<br><br>
                       <b>Video Info:</b>{record_information_about_the_vi}<br>
+                      <b>Photo:</b>
+                      <img src="https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_d35218e995de4f19a54b7bc27326563e_results/FeatureServer/0/{objectid}/attachment/{objectid}" 
+                      alt="uploaded image" width="300" height="200"> 
       `;
       const popupDataRecordedData = {
         "title": "Recorded Review",
@@ -93,6 +96,7 @@
                     "please_enter_a_website_for_the",
                     "please_record_your_observations",
                     "record_information_about_the_vi",
+                    "objectid"
                     ],
         popupTemplate: popupDataRecordedData
       });
