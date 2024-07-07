@@ -69,10 +69,18 @@
         // });
 
       // Define a pop-up for data recorded through Survey123 
+      var popupHTML = `
+                      <b>Name:</b>{what_is_the_name_of_the_place_y}<br>
+                      <b>Category:</b>{what_is_the_category_of_the_pla}<br>
+                      <b>Rating:</b>{how_would_you_rate_this_place}<br>
+                      <b>Website:</b>{please_enter_a_website_for_the}<br>
+                      <b>Observations:</b>{please_record_your_observations}<br>
+                      <b>Video Info:</b>{record_information_about_the_vi}<br>
+      `;
       const popupDataRecordedData = {
         "title": "Recorded Review",
-        "content": "<b>Name:</b>{what_is_the_name_of_the_place_y}<br><b>Category:</b>{what_is_the_category_of_the_pla}<br><b>Rating:</b>{how_would_you_rate_this_place}<br>"
-      }
+        "content": popupHTML
+      };
 
       // This will display data already recorded using the Survey123 applicaion. This will let users see their recorded events
       const visitedLocations = new FeatureLayer({
@@ -100,11 +108,10 @@
         //             "untitled_question_12_other",
         //             "transportation_and_scenic_route",
         //             "untitled_question_13_other",
-        //             "how_would_you_rate_your_experie",
-                    "how_would_you_rate_this_place",
-        //             "please_enter_a_website_for_the",
-        //             "please_record_your_observations",
-        //             "record_information_about_the_vi",
+                    "how_would_you_rate_your_experie",
+                    "please_enter_a_website_for_the",
+                    "please_record_your_observations",
+                    "record_information_about_the_vi",
                     ],
         popupTemplate: popupDataRecordedData
       });
