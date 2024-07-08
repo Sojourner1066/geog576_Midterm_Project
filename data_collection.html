@@ -38,6 +38,7 @@
     <script src="https://js.arcgis.com/4.26/"></script>
 
     <script>
+      // Add required Esri widgets
       require(["esri/config",
                "esri/Map",
                "esri/views/MapView",
@@ -47,27 +48,18 @@
              ],(esriConfig, Map, MapView, Search, FeatureLayer, Legend) => {
                 
         esriConfig.apiKey = "AAPK81b7cca05fd44c15a03618aa1d5dd08bZ1H0FAlNGuWt3LBhlRWCK906HeAPjeUnUsp30Hja37HR_MwAO3BPqQO2D-rMlJTE"
-
+        // create a map object and add OpenStreetMap as the basemap
         const map = new Map({
           basemap: "osm"
         });
 
-        // create a mapview with a center on Cambrige UK and a zoom level of the city
+        // create a mapview with a center on Africa and set the zoom to see all the land mass
         const view = new MapView({
           map: map,// References the map object
           center: [22.683853,9.072438],  // Longitude, latitude
           zoom: 4, // Zoom level
           container: "viewDiv" // Reference to the DOM node that will contain the view
         });
-
-        // const searchWidget = new Search({
-        //   view: view
-        // });
-        // // Adds the search widget below other elements
-        // view.ui.add(searchWidget, {
-        //   position: "bottom-right",
-        //   index: 2
-        // });
 
       // Define a pop-up for data recorded through Survey123 
       var popupHTML = `
@@ -81,6 +73,7 @@
                       <img src="https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_d35218e995de4f19a54b7bc27326563e_results/FeatureServer/0/{objectid}/attachment/{objectid}" 
                       alt="uploaded image" width="300" height="200"> 
       `;
+      // create popup object to add to the feature layer
       const popupDataRecordedData = {
         "title": "Recorded Review",
         "content": popupHTML
@@ -103,6 +96,7 @@
       
       map.add(visitedLocations);
 
+      // add a legend to the map to show what to points are
       const legend = new Legend({
         view: view,
         layerInfos: [{ layer: visitedLocations, title: "Locations Reviewed" }]
