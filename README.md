@@ -40,8 +40,9 @@ To get started with the Travel Influencer Platform, follow these steps:
 **Clone the repository**:
    ```bash
    git clone https://github.com/Sojourner1066/geog576_Midterm_Project.git
+```
 
-# Usage
+## Usage
 1. Access the platform: Open your web browser and navigate to http://localhost:3000.
 2. Explore destinations: Use the interactive map to search and select travel destinations.
 3. Document your travels: Utilize the integrated Survey123 tool to record observations, take geotagged photos, and collect other relevant data.
